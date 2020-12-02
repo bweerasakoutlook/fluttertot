@@ -35,6 +35,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('init state (home page)');
+  }
+
+  @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
@@ -76,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
                 child: Text('Press now !!')),
-            Header(),
+            const Header(),
             Text(
               'You have pushed the button this many times:',
             ),

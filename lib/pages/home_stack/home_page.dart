@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertot/pages/home_stack/about_page.dart';
 import 'package:fluttertot/widgets/header.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -16,7 +17,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-
       _counter++;
     });
   }
@@ -31,17 +31,35 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('assets/images/dell_logo2.png', height: 35,),
+        title: Image.asset(
+          'assets/images/dell_logo2.png',
+          height: 35,
+        ),
         centerTitle: true,
+        actions: [
+          // IconButton(
+            // icon: Icon(Icons.person_add, color: Colors.white, size: 40,), 
+            // onPressed: null
+            // ),
+            IconButton(
+            icon: Icon(Icons.exit_to_app, color: Colors.white, size: 40,), 
+            onPressed: null
+            )
+        ],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, 'homestack/about');
+                },
+                child: Text('About us')),
             Text(
               'Hello $title',
               style: Theme.of(context).textTheme.headline1,
-              ),
+            ),
             ElevatedButton(
                 onPressed: () {
                   setState(() {

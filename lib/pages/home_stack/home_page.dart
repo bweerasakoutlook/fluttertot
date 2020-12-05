@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertot/main.dart';
 import 'package:fluttertot/pages/home_stack/about_page.dart';
@@ -13,15 +15,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  String title = 'baowee khonkaen';
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   void initState() {
     super.initState();
@@ -39,13 +32,16 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         actions: [
           // IconButton(
-            // icon: Icon(Icons.person_add, color: Colors.white, size: 40,), 
-            // onPressed: null
-            // ),
-            IconButton(
-            icon: Icon(Icons.exit_to_app, color: Colors.white, size: 40,), 
-            onPressed: null
-            )
+          // icon: Icon(Icons.person_add, color: Colors.white, size: 40,),
+          // onPressed: null
+          // ),
+          IconButton(
+              icon: Icon(
+                Icons.exit_to_app,
+                color: Colors.white,
+                size: 40,
+              ),
+              onPressed: null)
         ],
       ),
       body: GridView.count(
@@ -55,48 +51,156 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisSpacing: 10,
         crossAxisCount: 2,
         children: <Widget>[
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.person, size: 80, color: Colors.orange,),
-                Text('About us', style: TextStyle(fontSize: 20, color: Colors.pink,fontWeight: FontWeight.bold),),
-              ],
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'homestack/about');
+            },
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.person,
+                    size: 80,
+                    color: Colors.orange,
+                  ),
+                  Text(
+                    'About us',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pink,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              color: Colors.teal[100],
             ),
-            color: Colors.teal[100],
           ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Heed not the rabble'),
-            color: Colors.teal[200],
+          OutlinedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.teal[200])
+            ),
+            onPressed: () {}, 
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.map_rounded,
+                    size: 80,
+                    color: Colors.orange,
+                  ),
+                  Text(
+                    'Map',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pink,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'homestack/about');
+            },
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.file_copy_outlined,
+                    size: 80,
+                    color: Colors.orange,
+                  ),
+                  Text(
+                    'File copy',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pink,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              color: Colors.teal[300],
+            ),
           ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Sound of screams but the'),
-            color: Colors.teal[300],
+          OutlinedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.teal[400])
+            ),
+            onPressed: () {}, 
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.picture_as_pdf_sharp,
+                    size: 80,
+                    color: Colors.orange,
+                  ),
+                  Text(
+                    'PDF',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pink,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'homestack/about');
+            },
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.transfer_within_a_station,
+                    size: 80,
+                    color: Colors.orange,
+                  ),
+                  Text(
+                    'Transfer within a station',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pink,
+                        fontWeight: FontWeight.bold
+                        ),
+                  ),
+                ],
+              ),
+              color: Colors.teal[300],
+            ),
           ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Who scream'),
-            color: Colors.teal[400],
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Revolution is coming...'),
-            color: Colors.teal[500],
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Revolution, they...'),
-            color: Colors.teal[600],
-          ),
+          OutlinedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.teal[500])
+            ),
+            onPressed: () {}, 
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.wifi,
+                    size: 80,
+                    color: Colors.orange,
+                  ),
+                  Text(
+                    'Wi-Fi',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pink,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }

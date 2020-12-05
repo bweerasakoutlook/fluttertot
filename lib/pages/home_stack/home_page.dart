@@ -48,47 +48,50 @@ class _MyHomePageState extends State<MyHomePage> {
             )
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-               Text('Hello row baowee'),
-               Text('Flutter')
-             ],
+              children: [
+                Icon(Icons.person, size: 80, color: Colors.orange,),
+                Text('About us', style: TextStyle(fontSize: 20, color: Colors.pink,fontWeight: FontWeight.bold),),
+              ],
             ),
-
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, 'homestack/about');
-                },
-                child: Text('About us')),
-            Text(
-              'Hello $title',
-              style: Theme.of(context).textTheme.headline1,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    title = 'www.tot.co.th';
-                  });
-                },
-                child: Text('Press now !!')),
-            const Header(),
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              'This is Baowee app on flutter:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline1,
-            ),
-          ],
-        ),
+            color: Colors.teal[100],
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Heed not the rabble'),
+            color: Colors.teal[200],
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Sound of screams but the'),
+            color: Colors.teal[300],
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Who scream'),
+            color: Colors.teal[400],
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Revolution is coming...'),
+            color: Colors.teal[500],
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Revolution, they...'),
+            color: Colors.teal[600],
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertot/main.dart';
 import 'package:fluttertot/pages/home_stack/about_page.dart';
 import 'package:fluttertot/widgets/header.dart';
 
@@ -51,6 +52,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+               Text('Hello row baowee'),
+               Text('Flutter')
+             ],
+            ),
+
             ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, 'homestack/about');

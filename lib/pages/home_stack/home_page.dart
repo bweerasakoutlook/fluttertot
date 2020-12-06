@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertot/main.dart';
 import 'package:fluttertot/pages/home_stack/about_page.dart';
 import 'package:fluttertot/widgets/header.dart';
+import 'package:fluttertot/widgets/menu.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -24,6 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Menu(),
       appBar: AppBar(
         title: Image.asset(
           'assets/images/dell_logo2.png',
@@ -38,8 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
               icon: Icon(
                 Icons.exit_to_app,
-                color: Colors.white,
-                size: 40,
+                color: Colors.orange,
+                size: 30,
               ),
               onPressed: null)
         ],
@@ -69,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'About us',
                     style: TextStyle(
                         fontSize: 20,
-                        color: Colors.pink,
+                        color: Colors.orange[800],
                         fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -94,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Map',
                     style: TextStyle(
                         fontSize: 20,
-                        color: Colors.pink,
+                        color: Colors.orange[800],
                         fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -118,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'File copy',
                     style: TextStyle(
                         fontSize: 20,
-                        color: Colors.pink,
+                        color: Colors.orange[800],
                         fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -143,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'PDF',
                     style: TextStyle(
                         fontSize: 20,
-                        color: Colors.pink,
+                        color: Colors.orange[800],
                         fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -168,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 20,
-                        color: Colors.pink,
+                        color: Colors.orange[800],
                         fontWeight: FontWeight.bold
                         ),
                   ),
@@ -194,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Wi-Fi',
                     style: TextStyle(
                         fontSize: 20,
-                        color: Colors.pink,
+                        color: Colors.orange[800],
                         fontWeight: FontWeight.bold),
                   ),
                 ],

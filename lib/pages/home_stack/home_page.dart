@@ -1,9 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:fluttertot/main.dart';
-import 'package:fluttertot/pages/home_stack/about_page.dart';
-import 'package:fluttertot/widgets/header.dart';
 import 'package:fluttertot/widgets/menu.dart';
 
 class MyHomePage extends StatefulWidget {

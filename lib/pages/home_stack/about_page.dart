@@ -72,41 +72,9 @@ class _AboutPageState extends State<AboutPage> {
                     ],
                   ),
                   Divider(),
-
-                    
-                  Wrap(
-                   alignment: WrapAlignment.center,
-                    spacing: 5,
-                    children: List.generate(8,(index) => 
-                      Chip(
-                          label: Text('${index + 1} Person'),
-                          avatar: Icon(Icons.person_add),
-                          backgroundColor: Colors.blueAccent,
-                        ),
-                      ),
-                    
-                  ),
+                  buildWrapPerson(),
                 Divider(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    CircleAvatar(backgroundImage: AssetImage('assets/images/OIP_5.jpg'),radius: 30,),
-                    CircleAvatar(backgroundImage: AssetImage('assets/images/OIP_3.jpg'),radius: 30,),
-                    CircleAvatar(backgroundImage: AssetImage('assets/images/dark_png.png'),radius: 30,),
-                    SizedBox(
-                      width: 70,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Icon(Icons.track_changes, color: Colors.deepOrangeAccent,),
-                          Icon(Icons.train, color: Colors.deepOrange,),
-                          Icon(Icons.wifi, color: Colors.orangeAccent,),
-                        ],
-                      ),
-                    ),
-                    Divider(),
-                  ],
-                ),
+                buildRowFooter(),
                 ],
               ),
             )),
@@ -114,5 +82,43 @@ class _AboutPageState extends State<AboutPage> {
         ),
       ),
     );
+  }
+
+  Wrap buildWrapPerson() {
+    return Wrap(
+                 alignment: WrapAlignment.spaceEvenly,
+                  spacing: 5,
+                  children: List.generate(8,(index) => 
+                    Chip(
+                        label: Text('${index + 1} Person'),
+                        avatar: Icon(Icons.person_add),
+                        backgroundColor: Colors.blueAccent,
+                      ),
+                    ),
+                  
+                );
+  }
+
+  Row buildRowFooter() {
+    return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CircleAvatar(backgroundImage: AssetImage('assets/images/OIP_5.jpg'),radius: 30,),
+                  CircleAvatar(backgroundImage: AssetImage('assets/images/OIP_3.jpg'),radius: 30,),
+                  CircleAvatar(backgroundImage: AssetImage('assets/images/dark_png.png'),radius: 30,),
+                  SizedBox(
+                    width: 70,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Icon(Icons.track_changes, color: Colors.deepOrangeAccent,),
+                        Icon(Icons.train, color: Colors.deepOrange,),
+                        Icon(Icons.wifi, color: Colors.orangeAccent,),
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                ],
+              );
   }
 }

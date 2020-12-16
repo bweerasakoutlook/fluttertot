@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertot/pages/home_stack/home_stack.dart';
+import 'package:fluttertot/pages/product_stack/product_stack.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomeStack(),
         '/homestack' : (context) => HomeStack(),
+        '/productstack' : (context) => ProductStack(),
       },
     );
   }

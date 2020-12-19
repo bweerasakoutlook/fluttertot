@@ -45,10 +45,10 @@ class _ProductPageState extends State<ProductPage> {
               onTap: () {
                 Navigator.pushNamed(context, 'productstack/detail');
               },
-              title: Text('${data[index].title}'),
-              subtitle: Text('${data[index].detail}'),
+              title: Text('${data[index].title}',style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),),
+              subtitle: Text('${data[index].detail}',style: TextStyle(color: Colors.green[500])),
               trailing: Chip(
-                label: Text('${data[index].view}'),
+                label: Text('${data[index].view}',style: TextStyle(color: Colors.blue[800])),
                 backgroundColor: Colors.orange[300],
               ),
               leading: Container(
@@ -56,6 +56,8 @@ class _ProductPageState extends State<ProductPage> {
                 width: 80,
                 decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(15),
+                    // boxShadow: BoxShadow.lerpList(a, b, t),
                     image: DecorationImage(
                       image: NetworkImage(data[index].picture),
                       fit: BoxFit.cover,

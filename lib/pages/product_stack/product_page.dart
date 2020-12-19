@@ -13,17 +13,23 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   List<Data> data = [];
+  bool isLoading = true;
 
   Future<void> getData() async {
     var url = 'https://api.codingthailand.com/api/course';
     var response = await http.get(url);
-    // print(response.body);
-    // print(json.decode(response.body));
-    final Product product = Product.fromJson(json.decode(response.body));
-    // print(product.data);
-    setState(() {
-      data = product.data;
-    });
+    if (response.statusCode == 200) {
+      final Product product = Product.fromJson(json.decode(response.body));
+      setState(() {
+        data = product.data;
+        isLoading = false;
+      });
+    } else {
+      setState(() {
+        isLoading = false;
+      });
+      print('error from backend 400/500');
+    }
   }
 
   @override
@@ -39,16 +45,23 @@ class _ProductPageState extends State<ProductPage> {
       appBar: AppBar(
         title: Text('Product'),
       ),
-      body: ListView.separated(
+      body: isLoading == true ? Center(child: CircularProgressIndicator(backgroundColor: Colors.orange,strokeWidth: 7.0,))
+      : ListView.separated(
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () {
                 Navigator.pushNamed(context, 'productstack/detail');
               },
-              title: Text('${data[index].title}',style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),),
-              subtitle: Text('${data[index].detail}',style: TextStyle(color: Colors.green[500])),
+              title: Text(
+                '${data[index].title}',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
+              ),
+              subtitle: Text('${data[index].detail}',
+                  style: TextStyle(color: Colors.green[500])),
               trailing: Chip(
-                label: Text('${data[index].view}',style: TextStyle(color: Colors.blue[800])),
+                label: Text('${data[index].view}',
+                    style: TextStyle(color: Colors.blue[800])),
                 backgroundColor: Colors.orange[300],
               ),
               leading: Container(

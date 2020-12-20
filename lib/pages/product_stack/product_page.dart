@@ -50,7 +50,10 @@ class _ProductPageState extends State<ProductPage> {
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () {
-                Navigator.pushNamed(context, 'productstack/detail');
+                Navigator.pushNamed(context, 'productstack/detail', arguments: {
+                  'id' : data[index].id,
+                  'title' : data[index].title,
+                });
               },
               title: Text(
                 '${data[index].title}',

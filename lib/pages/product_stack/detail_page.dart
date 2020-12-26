@@ -13,7 +13,7 @@ class _DetailPageState extends State<DetailPage> {
   Map<String, dynamic> product;
   Map<String, dynamic> detail;
 
-  Future<dynamic> getData(int id) async {
+  Future<Map<String, dynamic>> getData(int id) async {
     var url = 'https://api.codingthailand.com/api/course/$id';
     var response = await http.get(url);
     if (response.statusCode == 200) {
@@ -32,7 +32,7 @@ class _DetailPageState extends State<DetailPage> {
       appBar: AppBar(
         title: Text('${product['title']}'),
       ),
-      body: FutureBuilder<dynamic>(
+      body: FutureBuilder<Map<String, dynamic>>(
         future: getData(product['id']),
         builder: (context, snapshot) {
           if (snapshot.hasData) {

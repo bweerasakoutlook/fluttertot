@@ -37,16 +37,16 @@ class _LoginPageState extends State<LoginPage> {
                         FormBuilderTextField(
                           name: 'email',
                           decoration: InputDecoration(
-                            labelText:
-                                'email',
+                            labelStyle: TextStyle(color: Colors.blue[300],fontWeight: FontWeight.values[5]),
+                            labelText:'email',
                           ),
                           // onChanged: _onChanged,
                           // valueTransformer: (text) => num.tryParse(text),
-                          // validator: FormBuilderValidators.compose([
-                          //   FormBuilderValidators.required(context),
-                          //   FormBuilderValidators.numeric(context),
-                          //   FormBuilderValidators.max(context, 70),
-                          // ]),
+                          validator: FormBuilderValidators.compose([
+                            FormBuilderValidators.required(context),
+                            FormBuilderValidators.numeric(context),
+                            FormBuilderValidators.max(context, 70),
+                          ]),
                           keyboardType: TextInputType.emailAddress,
                         ),
                       ],
@@ -56,10 +56,10 @@ class _LoginPageState extends State<LoginPage> {
                     children: <Widget>[
                       Expanded(
                         child: MaterialButton(
-                          color: Theme.of(context).accentColor,
+                          // color: Theme.of(context).accentColor,
                           child: Text(
                             "Submit",
-                            style: TextStyle(color: Colors.blue[800]),
+                            style: TextStyle(color: Colors.blue[300],fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
                             _formKey.currentState.save();
@@ -74,10 +74,10 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(width: 20),
                       Expanded(
                         child: MaterialButton(
-                          color: Theme.of(context).accentColor,
+                          // color: Theme.of(context).backgroundColor,
                           child: Text(
                             "Reset",
-                            style: TextStyle(color: Colors.blue[800]),
+                            style: TextStyle(color: Colors.blue[300],fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
                             _formKey.currentState.reset();
